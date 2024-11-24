@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <title><%= title %></title>
+</head>
+<body>
+    <main class="container">
+        <h1><%= title %></h1>
+       
+        <form action="/expenseList/edit/<%= Expense._id %>" method="POST">
+            <div class="form-group">
+                <label for="Type">Class</label>
+                <select class="form-control" name="Type" id="Type">
+                    <option value="Assignment" <% if (Expense.Type === 'Assignment') { %> selected <% } %>>Assignment</option>
+                    <option value="Test" <% if (Expense.Type === 'Test') { %> selected <% } %>>Test</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Category">Category</label>
+                <input class="form-control" type="text" id="Category" name="Category" value="<%= Expense.Category %>" required>
+            </div>
+            <div class="form-group">
+                <label for="Details">Details</label>
+                <input class="form-control" type="text" id="Details" name="Details" value="<%= Expense.Details %>" required>
+            </div>
+            <div class="form-group">
+                <label for="Due Date">Due Date</label>
+                
+                <input class="form-control" type="text" id="Amount" name="Amount" value="<%= Expense.Amount %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+        
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>Welcome to
+        <%= title %>
+    </p>
+
+    <header class="d-flex align-items-center my-4">
+        <img src="logo.jpg" alt="Logo" style="height: 50px; width: auto; margin-right: 15px;">
+        <h1>
+            <%= title %>
+        </h1>
+    </header>
+</body>
+
+
+</html>
+<h2>Expense Table</h2>
+<table id="expenseTable">
+    <tr>
+        <th>Source</th>
+        <th>Assignment/Test</th>
+        <th>Amount</th>
+    </tr>
+</table>
+
+<form id="expenseForm">
+    <label for="source">Source:</label><br>
+    <input type="text" id="source" name="source" required><br><br>
+
+    <label for="expenseIncome">Assignment/Test:</label><br>
+    <select name="expenseIncome" id="expenseIncome">
+        <option value="Assignment">Assignment</option>
+        <option value="Test">Test</option>
+    </select><br><br>
+
+    <label for="amount">Amount:</label><br>
+    <input type="number" id="amount" name="amount" required><br><br>
+
+    <button type="button" onclick="addExpense()">Add</button>
+</form>
+
+<script>
+    function addExpense() {
+        const source = document.getElementById("source").value;
+        const expenseIncome = document.getElementById("expenseIncome").value;
+        const amount = document.getElementById("amount").value;
+
+        const table = document.getElementById("expenseTable");
+        const row = table.insertRow();
+        const sourceCell = row.insertCell(0);
+        const typeCell = row.insertCell(1);
+        const amountCell = row.insertCell(2);
+
+        sourceCell.innerText = source;
+        typeCell.innerText = expenseIncome;
+        amountCell.innerText = amount;
+
+        document.getElementById("expenseForm").reset();
+    }
+</script>

@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <title><%= title %></title>
+</head>
+<body>
+    <main class="container">
+        <h1><%= title %></h1>
+        <a href="/expenseList/add" class="btn btn-primary" role="button">
+            Add Assignment/Test
+        </a>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Type</th>
+                    <th class="text-center">Category</th>
+                    <th class="text-center">Details</th>
+                    <th class="text-center">Due Date</th>
+                    <th class="text-center">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% expenseList.forEach(expense => { %>
+                    <tr>
+                        <td class="text-center"><%= expense.Type %></td>
+                        <td class="text-center"><%= expense.Category %></td>
+                        <td class="text-center"><%= expense.Details %></td>
+                        <td class="text-center"><%= expense.Amount %></td>
+                        <td class="text-center">
+                            <a href="/expenseList/edit/<%= expense._id %>" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="/expenseList/delete/<%= expense._id %>" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
